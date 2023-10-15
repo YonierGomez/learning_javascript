@@ -473,3 +473,263 @@ saludandome('Iris')
 saludandome(20)
 ```
 
+## Métodos
+
+```js
+/* Metodos, modifican el comportamiento de una variable o sus valores
+
+SINTAXIS
+
+variable.metodo()
+*/
+
+// Declarar un array
+let animales = ['perro', 'gato']
+
+// Añadiendo elementos al array con el método .push()
+console.log('=============================================================')
+console.log('Creando array y añadiendo con el metodo .push()')
+animales.push('vaca')
+console.log(animales)
+
+// Si guardo a .push() en una variable me arorja el numero de elementos
+let cantidad = animales.push('oso')
+console.log(cantidad)
+
+console.log('=============================================================')
+console.log('Repasando for imprimiendo el array')
+// Repasando un ciclo for
+for (let i = 0; i < animales.length; i++) {
+    console.log(animales[i])
+}
+
+console.log('=============================================================')
+console.log('Quitando elementos del array, en este caso es "OSO"')
+// Quitando elementos de array con el método .pop
+animales.pop('oso')
+console.log(animales)
+
+
+// Método .slice() lo que hace es dividir nuestro array en 2
+console.log('=============================================================')
+console.log('Usando método .slice() para crear una nueva lista')
+let amigos = ['Pedro', 'Andrea', 'Vanessa', 'Yesica', 'Marin']
+let amigo = amigos.slice(0, 2) // con el slice le digo que toma la posicion 1 que es pedro y el 2 que es que es Vanessa pero no se cuenta, entonces queda Andrea
+console.log(amigo) //Imprimo la nueva lista
+```
+
+### Método foreach
+
+```js
+/* Metodos, modifican el comportamiento de una variable o sus valores
+
+SINTAXIS
+
+variable.metodo()
+*/
+
+// Imprimir a través de un for
+console.log('==========================================================')
+console.log('Usando for para imprimir un array')
+let amigos = ['Pedro', 'Andrea', 'Vanessa', 'Yesica', 'Marin']
+
+// Con un for sería así
+
+for (let i = 0; i < amigos.length; i++) {
+    console.log(amigos[i])
+}
+
+// Método .foreach() es un ciclo
+console.log('==========================================================')
+console.log('Usando el método .foreach() - es un ciclo')
+/* For each significa para cada, ej para cada elemento
+* For each necesita como parámetro UNA FUNCION
+* La función necesita un parámetro, ese parámetro sería la variable, es decir cada elemento de la lista se convierte en la variable
+IMPORTANTE: El parámetro dentro de la función se convierte en cada elemento del array, en este caso el param es "amigo"
+*/
+
+amigos.forEach(function (amigo) {
+    console.log(amigo)
+})
+
+// Func flecha
+console.log('==========================================================')
+console.log('Usando el método .foreach() con func flecha')
+amigos.forEach(amigo => console.log(amigo))
+console.log('Como es una func flecha podemos omitir el () del param')
+console.log('==========================================================')
+
+// Func flecha con lógica
+console.log('==========================================================')
+console.log('Usando el método .foreach() con func flecha y lógica')
+amigos.forEach((amigo) => {
+    if (typeof amigos === "list") {
+        console.log(amigo)
+    } else {
+        console.error('Tipo de dato no valido, amigo es un:', typeof amigos)
+    }
+})
+
+// IMPORTANTE: SI AÑADIMOS FOREACH A UNA VARIABLE, FOREACH NO DEVUELVE NINGÚN DATO
+
+// La finalidad de foreach es hacer algo con los elementos
+```
+
+### Método  map (igual a foreach)
+
+Método .map() es un ciclo y si permite retornar un dato si se guarda en variable, se usa mas que foreach, es decir que .map() devuelve un nuevo array
+
+```js
+/* Metodos, modifican el comportamiento de una variable o sus valores
+
+SINTAXIS
+
+variable.metodo()
+*/
+
+// Método .map() es un ciclo y si permite retornar un dato si se guarda en variable
+console.log('==========================================================')
+console.log('Usando el método .map() - es un ciclo')
+/* .map() significa para cada, ej para cada elemento
+* .map() necesita como parámetro UNA FUNCION
+* La función necesita un parámetro, ese parámetro sería la variable, es decir cada elemento de la lista se convierte en la variable
+IMPORTANTE: El parámetro dentro de la función se convierte en cada elemento del array, en este caso el param es "amigo"
+*/
+
+// Func flecha
+console.log('==========================================================')
+
+console.log('Usando el método .map() con func flecha')
+let amigos = ['Pedro', 'Andrea', 'Vanessa', 'Yesica', 'Marin']
+let myfriend = amigos.map(amigo => `Hola, ${amigo}` )
+
+// Se imprime la variable que retorna un dato
+console.log(myfriend)
+
+console.log('==========================================================')
+
+```
+
+### Método filter
+
+Con el método .filter(func) nos arroja un listado de números mayores a 20
+
+```js
+/* Metodos, modifican el comportamiento de una variable o sus valores
+
+SINTAXIS
+
+variable.metodo()
+*/
+
+// Método .map() es un ciclo y si permite retornar un dato si se guarda en variable
+console.log('==========================================================')
+console.log('Usando el método .map() para crear una lista')
+
+let mynum = [30, 23, 10, 12, 19, 21, 54, 5464, 67, 23, 1566, 67, 7878, 4545]
+newmynum = []
+
+
+mynum.map(num => {
+    if (num > 20) {
+        console.log(num)
+        newmynum.push(num)
+    }
+})
+
+console.log(newmynum)
+
+// Usando .filter - debemos pasar una funct
+console.log('==========================================================')
+console.log('Usando el método .filter() para simplificar')
+let listnum = [30, 23, 10, 12, 19, 21, 54, 834, 10, 19, 67, 23, 1566, 67, 7878, 4545]
+
+let num_dato = listnum.filter(l_num => l_num > 20)
+
+console.log(num_dato)
+
+```
+
+### Método find
+
+Hace lo mismo que .filter(func) pero nos arroja un solo dato en un lugar de una lista
+
+```js
+/* Metodos, modifican el comportamiento de una variable o sus valores
+
+SINTAXIS
+
+variable.metodo()
+*/
+
+// Usando .find - debemos pasar una funct
+console.log('==========================================================')
+console.log('Usando el método .find() para simplificar')
+let listnum = [9, 30, 23, 10, 12, 19, 21, 54, 834, 10, 19, 67, 23, 1566, 67, 7878, 4545]
+
+let num_dato = listnum.find(l_num => l_num > 20)
+
+console.log(num_dato)
+
+// Esto por defecto muestra el primer dato que sea mayor a 20
+```
+
+### Método includes, some, every
+
+#### **Includes**
+
+Nos dice si un elemento pertenece o no a una lista, nos devuelve un bool
+
+```js
+/* Metodos, modifican el comportamiento de una variable o sus valores
+
+SINTAXIS
+
+variable.metodo()
+*/
+
+// Usando .incluse - debemos pasar el numero a validar si está en la lista
+console.log('==========================================================')
+console.log('Usando el método .incluse() para simplificar')
+let listnum = [9, 30, 23, 10, 12, 19, 21, 54, 834, 10, 19, 67, 23, 1566, 67, 7878, 4545]
+
+let num_dato = listnum.includes(20)
+
+console.log(num_dato)
+
+// Nos arroja un tipo de dato bool
+```
+
+#### **Some**
+
+Por ejemplo, voy a preguntar que si algún elemento en la lista es un string
+
+```js
+// Usando .some(func) - Hace lo mismo de includes pero debemos pasar una func y permite lógica
+console.log('==========================================================')
+console.log('Usando el método .incluse() para simplificar')
+let num = [9, 30, 23, 10, 'neytor']
+
+let dato = num.some(lnum => typeof lnum === 'string' )
+
+console.log(dato)
+```
+
+#### Every
+
+Valida si todos los elementos cumplen con una condición
+
+Ejemplo, voy a preguntar si todos los elementos son texto.
+
+```js
+// Usando .every(func) - Hace lo mismo de includes pero debemos pasar una func y permite lógica
+// Valida si todos los elementos cumplen con una condición
+console.log('==========================================================')
+console.log('Usando el método .every() para simplificar')
+let nums = [9, 30, 23, 10]
+
+let datos = nums.every(lnums => typeof lnums === 'number' )
+
+console.log(datos)
+```
+
